@@ -1,0 +1,374 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"username",
+				"username"
+			],
+			[
+				"user",
+				"username"
+			],
+			[
+				"lo",
+				"longitude"
+			],
+			[
+				"spre",
+				"spread_1"
+			],
+			[
+				"sp",
+				"spread_1"
+			],
+			[
+				"ce",
+				"center_1"
+			],
+			[
+				"fli",
+				"flier_low"
+			],
+			[
+				"fl",
+				"flier_high"
+			],
+			[
+				"pre",
+				"previous_number_str	statement"
+			],
+			[
+				"pr",
+				"previous_number_str	statement"
+			],
+			[
+				"cu",
+				"current_index_number_str	statement"
+			],
+			[
+				"curr",
+				"current_index_number_str	statement"
+			],
+			[
+				"number",
+				"number_list	statement"
+			],
+			[
+				"di",
+				"difference_between_two	statement"
+			],
+			[
+				"om",
+				"omitting_length	statement"
+			],
+			[
+				"curre",
+				"current_index_number_length	statement"
+			],
+			[
+				"next",
+				"next_number	statement"
+			],
+			[
+				"ne",
+				"next_number	statement"
+			],
+			[
+				"list",
+				"list_size	statement"
+			],
+			[
+				"num",
+				"number_of_phone_lists	statement"
+			],
+			[
+				"T",
+				"True	keyword"
+			],
+			[
+				"re",
+				"return	keyword"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"markdown",
+				"markdown_deux	module"
+			],
+			[
+				"i",
+				"i	forstmt"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"for",
+				"format	function"
+			],
+			[
+				"w",
+				"widgets	module"
+			],
+			[
+				"P",
+				"PagedownWidget	class"
+			],
+			[
+				"mar",
+				"markedContent"
+			],
+			[
+				"con",
+				"content-markdown"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 312.0,
+		"last_filter": "mat",
+		"selected_items":
+		[
+			[
+				"mat",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"side",
+				"View: Toggle Side Bar"
+			]
+		],
+		"width": 417.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/kamal/django-projects/mysite/location/models.py",
+		"/home/kamal/django-projects/mysite/location/views.py",
+		"/home/kamal/django-projects/mysite/location/admin.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/cleaning_outliers.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/importing_image.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/image_visualisation_usinfPIL.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/generating_controlled_randomdataset.py",
+		"/home/kamal/django-projects/mysite/mysite/urls.py",
+		"/home/kamal/django-projects/mysite/location/urls.py",
+		"/home/kamal/Downloads/closed_uniform_bspline.m",
+		"/home/kamal/Downloads/abcg.m",
+		"/home/kamal/Downloads/BSplineBasis.py",
+		"/home/kamal/django-projects/Gbike/raw_gbike/views.py",
+		"/home/kamal/Desktop/tes.py",
+		"/home/kamal/django-projects/mysite/mysite/settings.py",
+		"/home/kamal/django-projects/mysite/location/templates/location/list.html",
+		"/home/kamal/Desktop/documents/data_visualisation_py/first_matplotlib.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/impoerting_from_database.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/writing_xl.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/reading_json.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/reading_xl.py",
+		"/home/kamal/Desktop/documents/data_visualisation_py/reading_csv.py",
+		"/home/kamal/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/kamal/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/kamal/Desktop/uri.py",
+		"/home/kamal/Desktop/test_uri.py",
+		"/home/kamal/Desktop/openbspline.py",
+		"/home/kamal/Downloads/basisbspline (1).m",
+		"/home/kamal/django-projects/mysite/location_assistance.sublime-project",
+		"/home/kamal/Desktop/cgs/cgs_30Sept/bspline2.m",
+		"/home/kamal/Desktop/bspline.m",
+		"/home/kamal/Desktop/test.m",
+		"/home/kamal/django-projects/blogapi/trydjango19/templates/post_form.html",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/forms.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/templates/post_detail.html",
+		"/home/kamal/django-projects/blogapi/trydjango19/trydjango19/settings.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/models.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/templates/post_list.html",
+		"/home/kamal/django-projects/blogapi/trydjango19/templates/base.html",
+		"/home/kamal/Desktop/cgbasisspline.m",
+		"/home/kamal/Desktop/cgs/cgs_30Sept/bspline.m",
+		"/home/kamal/Desktop/test2.m",
+		"/home/kamal/Desktop/cg5.m",
+		"/home/kamal/Desktop/test 2.m",
+		"/media/kamal/9435-C72E/mid_sem/funlen.m",
+		"/media/kamal/9435-C72E/mid_sem/data.m",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/apps.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/views.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/trydjango19/urls.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/admin.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/templates/index.html",
+		"/home/kamal/django-projects/blogapi/trydjango19/static/css/base.css",
+		"/home/kamal/Desktop/ids.py",
+		"/home/kamal/Desktop/cgs/testteapot.py",
+		"/home/kamal/django-projects/blogapi/trydjango19/posts/urls.py",
+		"/home/kamal/Desktop/surface.m",
+		"/home/kamal/Desktop/datafileteapot.txt",
+		"/home/kamal/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/kamal/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/kamal/django-projects/Gbike/stand/forms.py",
+		"/home/kamal/django-projects/Gbike/userProfile/views.py",
+		"/home/kamal/django-projects/Gbike/userProfile/models.py",
+		"/home/kamal/django-projects/Gbike/stand/models.py",
+		"/home/kamal/django-projects/Gbike/raw_gbike/models.py",
+		"/home/kamal/django-projects/Gbike/stand/views.py"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 94.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"()",
+			"difference_length",
+			"'),\n",
+			"first_name",
+			")\n",
+			"end",
+			"NN",
+			"N"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "__init__.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 183.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
