@@ -5,10 +5,11 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
+from .models import SaveSettings
 import json
 
-# Create your views here.
-
+# Create your views here
+#views for user table
 def testview(request):
 	user = User.objects.all()
 	userset= serializers.serialize('json',user)
@@ -43,3 +44,50 @@ def login(request):
         return HttpResponse("login successful")
     else:
         return HttpResponse("invalid credentials")
+
+
+#views for save_settings table
+@csrf_exempt
+def set_settings(request):
+    current_username=request.POST.get('username')
+    current_longitude = request.POST.get('longitude')
+    current_latitude = request.POST.get('latitude')
+    current_volumeLevel = request.POST.get('volumeLevel')
+    current_vibrationMode = request.POST.get('vibrationMode')
+    current_brightness = request.POST.get('brightness')
+    current_mobileData = request.POST.get('mobileData')
+    current_wifi = request.POST.get('wifi')
+    current_bluetooth = request.POST.get('bluetooth')
+    current_activity = request.POST.get('activity')
+    try:
+        user=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+
+    try:
+        settings = SaveSettings(longitude = current_longitude, latitude = current_latitude, volumeLevel = current_volumeLevel, vibrationMode = current_vibrationMode, 
+        brightness = current_brightness, mobileData = current_mobileData, wifi = current_wifi, bluetooth = current_bluetooth, activity = current_activity)
+        settings.save()
+    except Exception as e:
+        return HttpResponse("error in user input")
+
+    return HttpResponse("Settings saved")  
+
+
+@csrf_exempt
+def delete_settings(request):
+    current_username = request.POST.get('username')
+    current_longitude = request.POST.get('longitude')
+    current_latitude = request.POST.get('latitude')
+    try:
+        user=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+
+    user = User.objects.get(username = current_username)
+    setting = SaveSettings.objects.get(longitude = current_longitude)   
+    setting = SaveSettings.objects.get(latitude = current_latitude)  
+    
+    setting.delete()
+
+    return HttpResponse("settings successfully deleted") 
