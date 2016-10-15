@@ -24,3 +24,12 @@ class SaveSettings(models.Model):
     	location = "_" + str(self.latitude) +"_" + str(self.longitude)
         return location
 
+class Live(models.Model):
+    longitude = models.DecimalField(max_digits = 10, decimal_places = 8)
+    latitude = models.DecimalField(max_digits = 10, decimal_places = 8)
+    time = models.DateTimeField(default=timezone.now)
+    username = models.ForeignKey(User)
+
+    def __str__(self):
+    	return self.username
+

@@ -5,7 +5,7 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
-from .models import SaveSettings
+from .models import SaveSettings,Live
 import json
 
 # Create your views here
@@ -91,3 +91,27 @@ def delete_settings(request):
     setting.delete()
 
     return HttpResponse("settings successfully deleted") 
+
+
+
+#Live Model views
+
+@csrf_exempt
+def get_live(request):
+    current_username = request.POST.get('username')
+    current_longitude = request.POST.get('longitude')
+    current_latitude = request.POST.get('latitude')
+    current_time = request.POST.get('time')
+
+    try:
+        user=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+
+    live_status = Live(username = current_username, longitude = current_longitude, 
+        latitude = current_latitude, time = current_time)
+    live_status.save()
+
+    return HttpResponse("live status recorded")
+
+
