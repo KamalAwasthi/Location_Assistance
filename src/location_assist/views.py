@@ -129,11 +129,27 @@ def set_reminder(request):
     except Exception as e:
         return HttpResponse("username is not registered")
 
-    reminder = Reminder(username = current_username, longitude = current_longitude, 
+    reminder = Reminder(username = user, longitude = current_longitude, 
         latitude = current_latitude, reminder_title = current_reminder_title, reminder_text = current_reminder_text)
     reminder.save()
 
     return HttpResponse("reminder has been set")
+
+@csrf_exempt
+def delete_reminder(request):
+    current_username = request.POST.get('username')
+    reminder_id = request.POST.get('id')
+
+    try:
+        user=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+        #setting = SaveSettings.objects.get(latitude = current_latitude) 
+    deleted_reminder = Reminder.objects.get(pk = reminder_id)
+
+    deleted_reminder.delete()
+
+    return HttpResponse("reminder deleted sucessfully")
 
 
 

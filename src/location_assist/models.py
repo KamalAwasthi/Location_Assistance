@@ -41,4 +41,5 @@ class Reminder(models.Model):
     reminder_text = models.TextField(null = True)
 
     def __str__(self):
-        return self.username + "_" + self.longitude + "_" + self.latitude
+        namevalue =  str(self.username) + "_" + str(self.longitude) + "_" + str(self.latitude)
+        return namevalue
