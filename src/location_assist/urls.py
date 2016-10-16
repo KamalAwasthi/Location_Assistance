@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^location/set_settings$', views.set_settings,name= 'set_settings_view'),
     url(r'^location/delete_settings$', views.delete_settings,name= 'delete_settings_view'),
     url(r'^location/set_status$', views.get_live,name= 'set_status_view'),
+    url(r'^location/set_reminder$', views.set_reminder,name= 'set_reminder_view'),
 ]

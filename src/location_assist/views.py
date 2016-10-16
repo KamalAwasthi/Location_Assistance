@@ -5,7 +5,7 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
-from .models import SaveSettings,Live
+from .models import SaveSettings,Live, Reminder
 import json
 
 # Create your views here
@@ -113,5 +113,29 @@ def get_live(request):
     live_status.save()
 
     return HttpResponse("live status recorded")
+
+#views for Reminder TABLE
+
+@csrf_exempt
+def set_reminder(request):
+    current_username = request.POST.get('username')
+    current_longitude = request.POST.get('longitude')
+    current_latitude = request.POST.get('latitude')
+    current_reminder_title = request.POST.get('reminder_title')    
+    current_reminder_text = request.POST.get('reminder_text')
+
+    try:
+        user=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+
+    reminder = Reminder(username = current_username, longitude = current_longitude, 
+        latitude = current_latitude, reminder_title = current_reminder_title, reminder_text = current_reminder_text)
+    reminder.save()
+
+    return HttpResponse("reminder has been set")
+
+
+
 
 

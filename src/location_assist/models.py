@@ -33,3 +33,12 @@ class Live(models.Model):
     def __str__(self):
     	return self.username
 
+class Reminder(models.Model):
+    longitude = models.DecimalField(max_digits = 10, decimal_places = 8)
+    latitude = models.DecimalField(max_digits = 10, decimal_places = 8)
+    username = models.ForeignKey(User)
+    reminder_title = models.CharField(max_length = 100)
+    reminder_text = models.TextField(null = True)
+
+    def __str__(self):
+        return self.username + "_" + self.longitude + "_" + self.latitude
