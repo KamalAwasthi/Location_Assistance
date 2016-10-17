@@ -8,4 +8,4 @@ Location Assistance is location based service with features like:
 4. Location based automatic mobile settings.
 
 <hr>
-
+The project is in its intial development phase, product will be ready soon :+1: :smile:
