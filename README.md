@@ -9,3 +9,9 @@ Location Assistance is location based service with features like:
 
 <hr>
 The project is in its intial development phase, product will be ready soon :+1: :smile:
+
+#API Guidelines:
+
+##Register 
+<ul>Register new user
+  <li>
