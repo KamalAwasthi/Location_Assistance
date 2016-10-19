@@ -13,25 +13,27 @@ The project is in its intial development phase, product will be ready soon :+1: 
 #API Guidelines:
 
 ##Register Table
-###<ul><b>1.Register new user:</b>
+###<ul><li>
+<b>1.Register new user:</b>
 <li> URL: http://awasthikamal97.pythonanywhere.com/location/registration </li>
 <li>Fields names and values:
-<ol>
-<li>'username' : "example_username"</li>
-<li>'password' : "example_password"</li>
-<li>'first_name' : "example_name"</li>
-<li>'last_name' : "example_name"</li>
-</ol></li>
+    <ol>
+    <li>'username' : "example_username"</li>
+    <li>'password' : "example_password"</li>
+    <li>'first_name' : "example_name"</li>
+    <li>'last_name' : "example_name"</li>
+    </ol>
+</li>
 <li> password will be saved a hash</li>
 <li> Response: 
-<ol>if username is already registered: "username already taken"</ol>
-<ol>Sucessful Registration: "registration successful"</ol>
+  <ol>if username is already registered: "username already taken"</ol>
+  <ol>Sucessful Registration: "registration successful"</ol>
 </li>
 <li> POST request values are to be sent in test form(not JSON)</li>
-</ul>
+</li>
 
 
-###<ul><b>2.Login registered user:</b>
+###<li><b>2.Login registered user:</b>
 <li> URL: http://awasthikamal97.pythonanywhere.com/location/login</li>
 <li>Fields names and values:
 <ol>
@@ -44,7 +46,8 @@ The project is in its intial development phase, product will be ready soon :+1: 
 <ol>If credentials are invalid: "invalid credentials"</ol>
 </li>
 <li> POST request values are to be sent in test form(not JSON)</li>
+<li>
 </ul>
 
 
-</ul>
+
