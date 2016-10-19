@@ -13,7 +13,7 @@ The project is in its intial development phase, product will be ready soon :+1: 
 #API Guidelines:
 
 ##Register Table
-###<b>1.Register new user:</b>
+###<b>1.New user registration:</b>
 <ul>
     <li> URL: http://awasthikamal97.pythonanywhere.com/location/registration </li>
     <li>Fields names and values:
@@ -49,6 +49,3 @@ The project is in its intial development phase, product will be ready soon :+1: 
     </li>
     <li> POST request values are to be sent in test form(not JSON)</li>
 </ul>
-
-
-
