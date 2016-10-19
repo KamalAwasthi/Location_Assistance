@@ -49,3 +49,27 @@ The project is in its intial development phase, product will be ready soon :+1: 
     </li>
     <li> POST request values are to be sent in test form(not JSON)</li>
 </ul>
+
+
+##SaveSettings Table
+###<b>1.Set New Settings</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_settings</li>
+    <li>Field names and values:
+        <ol>
+            <li>'longitude' : '23.76986543' - (decimal value)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value) </li>
+            <li> 'volumeLevel' : '4.5' - (decimal value) </li>
+            <li> 'vibrationMode' : 'True' - (Boolean Value) </li>
+            <li> 'brightness' : '6.7' - (decimal value) </li>
+            <li> 'mobileData' : 'True' - (Boolean Value)</li>
+            <li> 'wifi' : 'True' - (Boolean Value)</li>
+            <li> 'bluetooth' : 'True' - (Boolean Value)</li>
+            <li>'username' : "kamal' - (Character Field)</li>
+            <li> 'activity' : "going for shopping" - (Text Value)</li>
+        </ol>
+    </li>  
+</ul>    
+
+
+
