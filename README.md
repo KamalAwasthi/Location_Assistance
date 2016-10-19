@@ -57,8 +57,8 @@ The project is in its intial development phase, product will be ready soon :+1: 
     <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_settings</li>
     <li>Field names and values:
         <ol>
-            <li>'longitude' : '23.76986543' - (decimal value)</li>
-            <li> 'latitude' : '34.78905634' - (decimal value) </li>
+            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal) </li>
             <li> 'volumeLevel' : '4.5' - (decimal value) </li>
             <li> 'vibrationMode' : 'True' - (Boolean Value) </li>
             <li> 'brightness' : '6.7' - (decimal value) </li>
@@ -68,7 +68,13 @@ The project is in its intial development phase, product will be ready soon :+1: 
             <li>'username' : "kamal' - (Character Field)</li>
             <li> 'activity' : "going for shopping" - (Text Value)</li>
         </ol>
-    </li>  
+    </li>
+    <li> after the user authenctication, settings will be saved</li>
+    <li> Response: 
+        <ol>sucessful save: "settings saved"</ol>
+        <ol>error in input: "error in user input"</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
 </ul>    
 
 
