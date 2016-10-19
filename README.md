@@ -16,4 +16,4 @@ The project is in its intial development phase, product will be ready soon :+1: 
 <ul>Register new user:
 <li> URL: http://awasthikamal97.pythonanywhere.com/location/registration </li>
 <li> POST request format: <br>
-{'username':'example_username','password':'example_password','first_name':'example_first_name','last_name':'example_last_name'}</li>
+{'username':'example_username','password':'example_password','first_name':'example_name','last_name':'example_name'}</li>
