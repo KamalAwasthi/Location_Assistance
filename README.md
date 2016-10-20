@@ -78,4 +78,23 @@ The project is in its intial development phase, product will be ready soon :+1: 
 </ul>    
 
 
+##Live Table
+###<b>1.Record Live Status</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_status</li>
+    <li>Field names and values:
+        <ol>
+            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal) </li>
+            <li>'username' : "kamal' - (Character Field)</li>
+            <li> 'time' : "2016-10-19 12:34:12" - (DateTime Field)</li>
+        </ol>
+    </li>
+    <li> after verifying the username, live status would be recorded</li>
+    <li> Response: 
+        <ol>sucessful save: "live status recorded"</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
+</ul> 
+
 
