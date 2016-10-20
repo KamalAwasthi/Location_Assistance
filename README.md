@@ -57,8 +57,8 @@ The project is in its intial development phase, product will be ready soon :+1: 
     <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_settings</li>
     <li>Field names and values:
         <ol>
-            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal)</li>
-            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal) </li>
+            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal and 2 digits before decimal)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal and 2 digits before decimal) </li>
             <li> 'volumeLevel' : '4.5' - (decimal value) </li>
             <li> 'vibrationMode' : 'True' - (Boolean Value) </li>
             <li> 'brightness' : '6.7' - (decimal value) </li>
@@ -84,8 +84,8 @@ The project is in its intial development phase, product will be ready soon :+1: 
     <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_status</li>
     <li>Field names and values:
         <ol>
-            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal)</li>
-            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal) </li>
+            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal and 2 digits before decimal)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal and 2 digits before decimal) </li>
             <li>'username' : "kamal' - (Character Field)</li>
             <li> 'time' : "2016-10-19 12:34:12" - (DateTime Field)</li>
         </ol>
@@ -97,4 +97,25 @@ The project is in its intial development phase, product will be ready soon :+1: 
     </li>
 </ul> 
 
+
+
+##Reminder Table
+###<b>1.Set Reminder</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/set_reminder</li>
+    <li>Field names and values:
+        <ol>
+            <li>'longitude' : '23.76986543' - (decimal value, 8 digits after decimal and 2 digits before decimal)</li>
+            <li> 'latitude' : '34.78905634' - (decimal value, 8 digits after decimal and 2 digits before decimal) </li>
+            <li>'username' : "kamal' - (Character Field)</li>
+            <li> 'reminder_title' : "Buy Milk" - (Character Field)</li>
+            <li> 'reminder_text' : "Buy milk from here, this place is really good" - (Text Field)</li>
+        </ol>
+    </li>
+    <li> after verifying the username, reminder  would be recorded</li>
+    <li> Response: 
+        <ol>sucessful save: "reminder has been set"</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
+</ul> 
 
