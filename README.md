@@ -119,3 +119,20 @@ The project is in its intial development phase, product will be ready soon :+1: 
     </li>
 </ul> 
 
+
+###<b>2.Delete Reminder</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/elete_reminder</li>
+    <li>Field names and values:
+        <ol>
+            <li>'username' : "kamal' - (Character Field)</li>
+            <li> 'id' : "12" - (Integer Field)</li>
+        </ol>
+    </li>
+    <li> after verifying the username, reminder  would be deleted</li>
+    <li> Response: 
+        <ol>sucessful save: "reminder deleted sucessfull"</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
+</ul> 
+
