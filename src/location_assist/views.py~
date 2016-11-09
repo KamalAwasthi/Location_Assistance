@@ -6,7 +6,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
 from .models import SaveSettings,Live, Reminder
-from django.core import serializers
 import json
 
 # Create your views here
@@ -74,21 +73,6 @@ def set_settings(request):
 
     return HttpResponse("Settings saved")  
 
-@csrf_exempt
-def sync_settings(request):
-    current_username=str(request.POST.get('username'))
-    current_username=str(current_username)
-    try:
-        user=User.objects.get(username=current_username)
-    except Exception as e:
-        return HttpResponse("username is not registered")
-
-    queryset = SaveSettings.objects.filter(username__username = current_username)
-    queryset=serializers.serialize('json',queryset)
-    return HttpResponse(queryset)
-
-    
-
 
 @csrf_exempt
 def delete_settings(request):
@@ -150,19 +134,6 @@ def set_reminder(request):
     reminder.save()
 
     return HttpResponse("reminder has been set")
-
-@csrf_exempt
-def sync_reminders(request):
-    current_username=str(request.POST.get('username'))
-    current_username=str(current_username)
-    try:
-        user=User.objects.get(username=current_username)
-    except Exception as e:
-        return HttpResponse("username is not registered")
-
-    queryset = Reminder.objects.filter(username__username = current_username)
-    queryset=serializers.serialize('json',queryset)
-    return HttpResponse(queryset)
 
 @csrf_exempt
 def delete_reminder(request):

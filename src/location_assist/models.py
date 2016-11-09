@@ -18,7 +18,7 @@ class SaveSettings(models.Model):
     wifi = models.BooleanField(default = False)
     bluetooth = models.BooleanField(default = False) 
     username = models.ForeignKey(User, null = True)
-    activity = models.TextField(null = True)
+    activity = models.TextField(null = True, blank = True)
 
     def __str__(self):
     	location = "_" + str(self.latitude) +"_" + str(self.longitude)
