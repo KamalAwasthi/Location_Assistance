@@ -25,7 +25,7 @@ SECRET_KEY = 'pwm-8-y+pn1!un@s_do=7lrh)2t^p$7wj=f0qyn^%n=1o*l2(e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testserver','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
