@@ -75,7 +75,22 @@ The project is in its intial development phase, product will be ready soon :+1: 
         <ol>error in input: "error in user input"</ol>
         <ol>If username is does not found in database: "username not registered"</ol>
     </li>
-</ul>    
+</ul>  
+
+###<b>2.SyncSettings</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/sync_settings</li>
+    <li>Field names and values:
+        <ol>
+            <li>'username' : "kamal' - (Character Field)</li>
+        </ol>
+    </li>
+    <li> after the user authenctication, settings will be filtered on the basis of username</li>
+    <li> Response: 
+        <ol>response: setiings list in JSON form</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
+</ul> 
 
 
 ##Live Table
@@ -115,6 +130,21 @@ The project is in its intial development phase, product will be ready soon :+1: 
     <li> after verifying the username, reminder  would be recorded</li>
     <li> Response: 
         <ol>sucessful save: "reminder has been set"</ol>
+        <ol>If username is does not found in database: "username not registered"</ol>
+    </li>
+</ul> 
+
+###<b>2.Sync Reminders</b>
+<ul>
+    <li>URL: http://awasthikamal97.pythonanywhere.com/location/sync_reminders</li>
+    <li>Field names and values:
+        <ol>
+            <li>'username' : "kamal' - (Character Field)</li>
+        </ol>
+    </li>
+    <li> after the user authenctication, settings will be filtered on the basis of username</li>
+    <li> Response: 
+        <ol>Response: User's reminders in JSON form </ol>
         <ol>If username is does not found in database: "username not registered"</ol>
     </li>
 </ul> 
