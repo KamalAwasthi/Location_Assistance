@@ -2,11 +2,18 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-# Create your models here.
+from django.db import models
+import json
 
-# class Person(models.Model):
-# 	userName = models.ForeignKey(user.username)
-# 	firstName = models.
+class FriendList(models.Model):
+    user = models.ForeignKey(User)
+    friendList = models.TextField()
+
+    def setfoo(self, x):
+        self.friendList = json.dumps(x)
+
+    def getfoo(self):
+        return json.loads(self.friendList)
 
 class SaveSettings(models.Model):
     longitude = models.DecimalField(max_digits = 10, decimal_places = 8)

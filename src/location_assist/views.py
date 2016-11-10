@@ -5,9 +5,10 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
-from .models import SaveSettings,Live, Reminder
+from .models import SaveSettings,Live, Reminder,FriendList
 from django.core import serializers
 import json
+import unicodedata
 
 # Create your views here
 #views for user table
@@ -68,6 +69,7 @@ def set_settings(request):
     try:
         settings = SaveSettings(longitude = current_longitude, latitude = current_latitude, volumeLevel = current_volumeLevel, vibrationMode = current_vibrationMode, 
         brightness = current_brightness, mobileData = current_mobileData, wifi = current_wifi, bluetooth = current_bluetooth, activity = current_activity)
+        settings.username =user
         settings.save()
     except Exception as e:
         return HttpResponse("error in user input")
@@ -181,7 +183,58 @@ def delete_reminder(request):
     return HttpResponse("reminder deleted sucessfully")
 
 
+#Friends Table View
+@csrf_exempt
+def add_friends(request):
+    current_username = request.POST.get('username')
+    current_friendList = request.POST.get('friendList')
+    try:
+        username=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+    json_obj = json.loads(current_friendList)
+    ol=[]
+    try:
+        existingUser = FriendList.objects.get(user__username = username)
+        user_friends = existingUser.getfoo()
+        for c in user_friends:
+            c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+            # print type(c)
+            ol.append(c)
+        for c in json_obj:
+            c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+            ol.append(c)
+        existingUser.friendList = ol
+        existingUser.save()
+    except:
+        friend = FriendList(user = username)
+        friend.setfoo(current_friendList) 
+        friend.save()
+    return HttpResponse(str(ol))
 
+@csrf_exempt
+def delete_friends(request):
+    current_username = request.POST.get('username')
+    current_friendList = request.POST.get('friendList')
+    try:
+        username=User.objects.get(username=current_username)
+    except Exception as e:
+        return HttpResponse("username is not registered")
+    json_obj = json.loads(current_friendList)
+    ol=[]
+    try:
+        existingUser = FriendList.objects.get(user__username = username)
+        user_friends = existingUser.getfoo()
+        for c in json_obj:
+            c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+            ol.append(c)
+        existingUser.friendList = ol
+        existingUser.save()
+    except:
+        friend = FriendList(user = username)
+        friend.setfoo(current_friendList) 
+        friend.save()
+    return HttpResponse(str(ol))
 
 
 
