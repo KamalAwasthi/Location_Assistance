@@ -205,7 +205,8 @@ def add_friends(request):
     try:
         username=User.objects.get(username=current_username)
     except Exception as e:
-        return HttpResponse("username is not registered")
+        status = 203
+        return HttpResponse(status)
     json_obj = json.loads(current_friendList)
     ol=[]
     try:
@@ -220,11 +221,13 @@ def add_friends(request):
             ol.append(c)
         existingUser.friendList = ol
         existingUser.save()
+        status = 200
     except:
         friend = FriendList(user = username)
         friend.setfoo(current_friendList) 
         friend.save()
-    return HttpResponse(str(ol))
+        status = 200
+    return HttpResponse(status)
 
 @csrf_exempt
 def delete_friends(request):
