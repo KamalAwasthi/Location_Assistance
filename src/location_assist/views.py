@@ -48,6 +48,20 @@ def login(request):
         return HttpResponse("invalid credentials")
 
 
+@csrf_exempt
+def search(request):
+    current_username=request.POST.get('username')
+    try:
+        user=User.objects.get(username=current_username)
+        python_object = {'flag':'True',
+                        'userName': user.username,
+                        'first_name': user.first_name,
+                        'last_name': user.last_name}
+    except Exception as e:
+        python_object = {'flag':'False'}
+    datatosend=json.JSONEncoder().encode(python_object)
+    return HttpResponse(datatosend)
+
 #views for save_settings table
 @csrf_exempt
 def set_settings(request):

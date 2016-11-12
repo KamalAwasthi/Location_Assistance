@@ -5,6 +5,7 @@ urlpatterns = [
     url(r'^location$', views.testview,name= 'testview'),
     url(r'^location/registration$', views.register,name= 'register_view'),
     url(r'^location/login$', views.login,name= 'login_view'),
+    url(r'^location/search_user$', views.search,name= 'search_view'),
     url(r'^location/set_settings$', views.set_settings,name= 'set_settings_view'),
     url(r'^location/sync_settings$', views.sync_settings,name= 'sync_settings_view'),
     url(r'^location/delete_settings$', views.delete_settings,name= 'delete_settings_view'),
