@@ -205,7 +205,8 @@ def add_friends(request):
     try:
         username=User.objects.get(username=current_username)
     except Exception as e:
-        return HttpResponse("username is not registered")
+        status = 203
+        return HttpResponse(status)
     json_obj = json.loads(current_friendList)
     ol=[]
     try:
@@ -218,13 +219,70 @@ def add_friends(request):
         for c in json_obj:
             c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
             ol.append(c)
-        existingUser.friendList = ol
+        existingUser.friendList = json.dumps(ol)
         existingUser.save()
+        status = 100
     except:
         friend = FriendList(user = username)
         friend.setfoo(current_friendList) 
         friend.save()
-    return HttpResponse(str(ol))
+        status = 200
+    return HttpResponse(status)
+
+@csrf_exempt
+def check_friendship(request):
+    current_username = request.POST.get('selfUsername')
+    current_friendName = request.POST.get('friendUsername')
+    # try:
+    #     selfusername=User.objects.get(username=current_username)
+    # except Exception as e:
+    #     python_object = {'user':'False',
+    #                     'frienduser':'False'}
+    #     datatosend=json.JSONEncoder().encode(python_object)
+    #     return HttpResponse(datatosend)
+
+    # try:
+    #     friendusername=User.objects.get(username=current_friendName)
+    # except Exception as e:
+    #     python_object = {'user':'True',
+    #                     'frienduser':'False'}
+    #     datatosend=json.JSONEncoder().encode(python_object)
+    #     return HttpResponse(datatosend)
+    
+    try:
+        existingUser = FriendList.objects.get(user__username = username)
+        user_friends = existingUser.getfoo()
+        for c in user_friends:
+            c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+            if(friendusername == c):
+                friend = True
+        if(friend == True):
+            try:
+                live_user = Live.objects.get(username__username = friendusername)
+            except Exception as e:
+                python_object = {'user':'True',
+                                'frienduser':'True',
+                                'live_status':'false',
+                                'friend':'True'}
+                datatosend = json.JSONEncoder().encode(python_object)
+                return HttpResponse(datatosend)
+            ff_latitude = live_user.latitude
+            ff_longitude = live_user.longitude
+            python_object = {'user':'False',
+                            'frienduser':'False',
+                            'live_status':'false',
+                            'latitude':ff_latitude,
+                            'longitude':ff_longitude,
+                            'friend':'True'}
+        else:
+            python_object = {'user':'True',
+                            'frienduser':'True',
+                            'friend':'False'}
+    except:
+        python_object = {'user':'True',
+                        'frienduser':'False'}
+    datatosend=json.JSONEncoder().encode(python_object)
+    return HttpResponse(datatosend)
 
 @csrf_exempt
 def delete_friends(request):

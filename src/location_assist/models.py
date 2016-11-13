@@ -15,6 +15,9 @@ class FriendList(models.Model):
     def getfoo(self):
         return json.loads(self.friendList)
 
+    def __str__(self):
+        return str(self.user)
+
 class SaveSettings(models.Model):
     longitude = models.DecimalField(max_digits = 10, decimal_places = 8)
     latitude = models.DecimalField(max_digits = 10, decimal_places = 8)

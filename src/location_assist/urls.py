@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^location/sync_reminders$', views.sync_reminders,name= 'sync_reminders_view'),
     url(r'^location/delete_reminder$', views.delete_reminder,name= 'delete_reminder_view'),
     url(r'^location/add_friends$', views.add_friends,name= 'add_friends_view'),
+    url(r'^location/check_friendship$', views.check_friendship,name= 'check_friendship_view'),
 ]
