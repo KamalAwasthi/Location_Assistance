@@ -273,7 +273,7 @@ def check_friendship(request):
             except Exception as e:
                 python_object = {'user':'True',
                                 'frienduser':'True',
-                                'live_status':'false',
+                                'live_status':'False',
                                 'friend':'True'}
                 datatosend = json.JSONEncoder().encode(python_object)
                 return HttpResponse(datatosend)
