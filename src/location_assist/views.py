@@ -229,12 +229,12 @@ def add_friends(request):
             ol.append(c)
         existingUser.friendList = json.dumps(ol)
         existingUser.save()
-        python_object = {'status':'203'}
+        python_object = {'status':'200'}
     except:
         friend = FriendList(user = username)
         friend.setfoo(current_friendList) 
         friend.save()
-        python_object = {'status':'203'}
+        python_object = {'status':'200'}
     datatosend=json.JSONEncoder().encode(python_object)
     return HttpResponse(datatosend)
 
