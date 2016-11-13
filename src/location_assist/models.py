@@ -41,7 +41,7 @@ class Live(models.Model):
     username = models.ForeignKey(User)
 
     def __str__(self):
-    	return self.username
+    	return str(self.username)
 
 class Reminder(models.Model):
     longitude = models.DecimalField(max_digits = 10, decimal_places = 8)

@@ -241,24 +241,26 @@ def check_friendship(request):
     #     datatosend=json.JSONEncoder().encode(python_object)
     #     return HttpResponse(datatosend)
 
-    # try:
-    #     friendusername=User.objects.get(username=current_friendName)
-    # except Exception as e:
-    #     python_object = {'user':'True',
-    #                     'frienduser':'False'}
-    #     datatosend=json.JSONEncoder().encode(python_object)
-    #     return HttpResponse(datatosend)
+    try:
+        friendusername=User.objects.get(username=current_friendName)
+    except Exception as e:
+        python_object = {'user':'True',
+                        'frienduser':'False'}
+        datatosend=json.JSONEncoder().encode(python_object)
+        return HttpResponse(datatosend)
     
     try:
-        existingUser = FriendList.objects.get(user__username = username)
+        friend = False
+        existingUser = FriendList.objects.get(user__username = current_username)
         user_friends = existingUser.getfoo()
         for c in user_friends:
             c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
-            if(friendusername == c):
+            if(c == current_friendName):
                 friend = True
+                break;
         if(friend == True):
             try:
-                live_user = Live.objects.get(username__username = friendusername)
+                live_user = Live.objects.get(username__username = current_friendName)
             except Exception as e:
                 python_object = {'user':'True',
                                 'frienduser':'True',
@@ -268,11 +270,11 @@ def check_friendship(request):
                 return HttpResponse(datatosend)
             ff_latitude = live_user.latitude
             ff_longitude = live_user.longitude
-            python_object = {'user':'False',
-                            'frienduser':'False',
-                            'live_status':'false',
-                            'latitude':ff_latitude,
-                            'longitude':ff_longitude,
+            python_object = {'user':'True',
+                            'frienduser':'True',
+                            'live_status':'True',
+                            'latitude':str(ff_latitude),
+                            'longitude':str(ff_longitude),
                             'friend':'True'}
         else:
             python_object = {'user':'True',
@@ -280,7 +282,7 @@ def check_friendship(request):
                             'friend':'False'}
     except:
         python_object = {'user':'True',
-                        'frienduser':'False'}
+                        'frienduser':'True'}
     datatosend=json.JSONEncoder().encode(python_object)
     return HttpResponse(datatosend)
 
