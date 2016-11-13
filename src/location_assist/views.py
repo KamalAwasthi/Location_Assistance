@@ -234,7 +234,8 @@ def add_friends(request):
         friend.setfoo(current_friendList) 
         friend.save()
         python_object = {'status':'203'}
-    return HttpResponse(status)
+    datatosend=json.JSONEncoder().encode(python_object)
+    return HttpResponse(datatosend)
 
 @csrf_exempt
 def check_friendship(request):
