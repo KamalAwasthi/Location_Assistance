@@ -213,7 +213,8 @@ def add_friends(request):
         username=User.objects.get(username=current_username)
     except Exception as e:
         python_object = {'status':'203'}
-        return HttpResponse(status)
+        datatosend=json.JSONEncoder().encode(python_object)
+        return HttpResponse(datatosend)
     json_obj = json.loads(current_friendList)
     ol=[]
     try:
