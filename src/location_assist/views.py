@@ -295,29 +295,6 @@ def check_friendship(request):
     datatosend=json.JSONEncoder().encode(python_object)
     return HttpResponse(datatosend)
 
-# @csrf_exempt
-# def delete_friends(request):
-#     current_username = request.POST.get('username')
-#     current_friendList = request.POST.get('friendList')
-#     try:
-#         username=User.objects.get(username=current_username)
-#     except Exception as e:
-#         return HttpResponse("username is not registered")
-#     json_obj = json.loads(current_friendList)
-#     ol=[]
-#     try:
-#         existingUser = FriendList.objects.get(user__username = username)
-#         user_friends = existingUser.getfoo()
-#         for c in json_obj:
-#             c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
-#             ol.append(c)
-#         existingUser.friendList = ol
-#         existingUser.save()
-#     except:
-#         friend = FriendList(user = username)
-#         friend.setfoo(current_friendList) 
-#         friend.save()
-#     return HttpResponse(str(ol))
 
 @csrf_exempt
 def get_friends(request):
@@ -333,6 +310,23 @@ def get_friends(request):
         ol=[]
     return HttpResponse(json.dumps(ol))
 
-
+@csrf_exempt
+def delete_friends(request):
+    current_username = request.POST.get('username')
+    current_friendName = request.POST.get('friendUsername')
+    ol=[]
+    try:
+        existingUser = FriendList.objects.get(user__username = current_username)
+        user_friends = existingUser.getfoo()
+        for c in user_friends:
+            c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+            if(c == current_friendName):
+                continue
+            ol.append(c)
+        existingUser.friendList = json.dumps(ol)
+        existingUser.save()
+    except:
+        ol=[]
+    return HttpResponse(json.dumps(ol))
 
 

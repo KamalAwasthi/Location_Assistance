@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^location/add_friends$', views.add_friends,name= 'add_friends_view'),
     url(r'^location/check_friendship$', views.check_friendship,name= 'check_friendship_view'),
     url(r'^location/get_friends$', views.get_friends,name= 'get_friends_view'),
+    url(r'^location/delete_friends$', views.delete_friends,name= 'delete_friends_view'),
 ]
