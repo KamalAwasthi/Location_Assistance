@@ -212,7 +212,7 @@ def add_friends(request):
     try:
         username=User.objects.get(username=current_username)
     except Exception as e:
-        status = 203
+        python_object = {'status':'203'}
         return HttpResponse(status)
     json_obj = json.loads(current_friendList)
     ol=[]
@@ -228,12 +228,12 @@ def add_friends(request):
             ol.append(c)
         existingUser.friendList = json.dumps(ol)
         existingUser.save()
-        status = 100
+        python_object = {'status':'203'}
     except:
         friend = FriendList(user = username)
         friend.setfoo(current_friendList) 
         friend.save()
-        status = 200
+        python_object = {'status':'203'}
     return HttpResponse(status)
 
 @csrf_exempt
