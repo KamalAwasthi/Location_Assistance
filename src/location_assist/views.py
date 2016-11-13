@@ -140,9 +140,16 @@ def get_live(request):
     except Exception as e:
         return HttpResponse("username is not registered")
 
-    live_status = Live(username = current_username, longitude = current_longitude, 
-        latitude = current_latitude, time = current_time)
-    live_status.save()
+    try:
+        live_status = Live.objects.get(username__username = current_username)
+        live_status.longitude = current_longitude
+        live_status.latitude = current_latitude
+        live_status.time = current_time
+        live_status.save()
+    except:
+        live_status = Live(username = user, longitude = current_longitude, 
+            latitude = current_latitude, time = current_time)
+        live_status.save()
 
     return HttpResponse("live status recorded")
 
