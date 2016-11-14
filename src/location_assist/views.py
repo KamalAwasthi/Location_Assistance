@@ -5,7 +5,7 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
-from .models import SaveSettings,Live, Reminder,FriendList
+from .models import SaveSettings,Live, Reminder,FriendList,UserSummary
 from django.core import serializers
 import json
 import unicodedata
@@ -134,9 +134,9 @@ def get_live(request):
     current_longitude = request.POST.get('longitude')
     current_latitude = request.POST.get('latitude')
     current_time = request.POST.get('time')
-
+    # return HttpResponse(json_obj)
     try:
-        user=User.objects.get(username=current_username)
+        name_user=User.objects.get(username=current_username)
     except Exception as e:
         return HttpResponse("username is not registered")
 
@@ -146,12 +146,41 @@ def get_live(request):
         live_status.latitude = current_latitude
         live_status.time = current_time
         live_status.save()
+        python_object = {"longitude":str(current_longitude),"latitude":str(current_latitude),"time":str(current_time)}
+        ol=[]
+        ol.append(python_object)
+        # return HttpResponse(ol)
+        try:
+            existingUser = UserSummary.objects.get(user__username = current_username)
+            user_summary = existingUser.getfoo()
+            for c in user_summary:
+                # c = unicodedata.normalize('NFKD', c).encode('ascii','ignore')
+                ol.append(c)
+            json_obj = json.dumps(ol)
+            existingUser.SummaryList = json_obj
+            existingUser.save()
+        # return HttpResponse(ol)
+        except:
+            json_obj = json.dumps(ol)
+            summary = UserSummary(user = name_user,SummaryList = json_obj)
+        # return HttpResponse(summary.SummaryList)
+            summary.save()
     except:
-        live_status = Live(username = user, longitude = current_longitude, 
+        live_status = Live(username = name_user, longitude = current_longitude, 
             latitude = current_latitude, time = current_time)
         live_status.save()
-
     return HttpResponse("live status recorded")
+
+@csrf_exempt
+def get_summary(request):
+    current_username = request.POST.get('username')
+    existingUser = UserSummary.objects.get(user__username = current_username)
+    user_summary = existingUser.getfoo()
+    # user_summary = json
+    return HttpResponse(json.dumps(user_summary))
+
+
+
 
 #views for Reminder TABLE
 

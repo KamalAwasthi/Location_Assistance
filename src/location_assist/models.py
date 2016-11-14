@@ -2,11 +2,31 @@ from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from jsonfield import JSONField
 from django.db import models
+from django import forms
+from django.core import exceptions
+from django.core.serializers.json import DjangoJSONEncoder
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
 import json
+#############################################
+class UserSummary(models.Model):
+    user = models.ForeignKey(User, null = True)
+    SummaryList = models.TextField(default = "[]")
+
+    def setfoo(self, x):
+        self.SummaryList = json.dumps(x)
+
+    def getfoo(self):
+        return json.loads(self.SummaryList)
+
+    def __str__(self):
+        return str(self.user)
+
 
 class FriendList(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, null = True)
     friendList = models.TextField()
 
     def setfoo(self, x):
