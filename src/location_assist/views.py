@@ -66,6 +66,7 @@ def search(request):
 @csrf_exempt
 def set_settings(request):
     current_username=request.POST.get('username')
+    current_title = request.POST.get('title')
     current_longitude = request.POST.get('longitude')
     current_latitude = request.POST.get('latitude')
     current_volumeLevel = request.POST.get('volumeLevel')
@@ -81,7 +82,7 @@ def set_settings(request):
         return HttpResponse("username is not registered")
 
     try:
-        settings = SaveSettings(longitude = current_longitude, latitude = current_latitude, volumeLevel = current_volumeLevel, vibrationMode = current_vibrationMode, 
+        settings = SaveSettings(title = current_title,longitude = current_longitude, latitude = current_latitude, volumeLevel = current_volumeLevel, vibrationMode = current_vibrationMode, 
         brightness = current_brightness, mobileData = current_mobileData, wifi = current_wifi, bluetooth = current_bluetooth, activity = current_activity)
         settings.username =user
         settings.save()
