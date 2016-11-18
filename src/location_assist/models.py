@@ -27,7 +27,7 @@ class UserSummary(models.Model):
 
 class FriendList(models.Model):
     user = models.ForeignKey(User, null = True)
-    friendList = models.TextField(default = "[]")
+    friendList = models.TextField()
 
     def setfoo(self, x):
         self.friendList = json.dumps(x)
