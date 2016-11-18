@@ -262,7 +262,6 @@ def add_friends(request):
         python_object = {'status':'200'}
     except:
         friend = FriendList(user = username)
-        friend.friendList = "[]"
         friend.setfoo(current_friendList) 
         friend.save()
         python_object = {'status':'200'}
