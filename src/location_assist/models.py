@@ -39,6 +39,7 @@ class FriendList(models.Model):
         return str(self.user)
 
 class SaveSettings(models.Model):
+    title = models.CharField(max_length = 100, null = True)
     longitude = models.DecimalField(max_digits = 10, decimal_places = 8)
     latitude = models.DecimalField(max_digits = 10, decimal_places = 8)
     volumeLevel = models.FloatField(null = True)
